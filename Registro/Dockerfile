@@ -1,14 +1,20 @@
-# Usa una imagen base ligera de Node.js o cualquier imagen que prefieras
-FROM node:18-alpine
+# Usa la imagen oficial de Node.js
+FROM node:18
 
-# Establece el directorio de trabajo en el contenedor
+# Crea el directorio de trabajo en el contenedor (en este caso, /app)
 WORKDIR /app
 
-# Instala dependencias globales si es necesario (en este caso, no hay ninguna)
-# RUN npm install -g <paquete>
+# Copia el archivo package.json y package-lock.json (si existe) al contenedor
+COPY package*.json ./
 
-# Abre un puerto (aunque no tenga ningún servicio corriendo todavía)
+# Instala las dependencias en /app 
+RUN npm install
+
+# Copia todo el código fuente al contenedor
+COPY . .
+
+# Exponer
 EXPOSE 3000
 
-# Mantén el contenedor en ejecución sin hacer nada específico
-CMD ["tail", "-f", "/dev/null"]
+# Comando para iniciar la app
+CMD ["npm", "start"]
