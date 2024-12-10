@@ -1,0 +1,49 @@
+services:
+  backend:
+    build: ./registro-back
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - DB_HOST=db
+      - DB_USER=user
+      - DB_PASSWORD=userpass
+      - DB_NAME=workscrum
+    depends_on:
+      - db
+    env_file:
+      - ./.env # Monta el archivo .env dentro del contenedor
+    networks:
+      - app-network
+
+  frontend:
+    build: ./registro-front
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=development
+      - REACT_APP_API_URL=http://backend:3000
+    networks:
+      - app-network
+
+  db:
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: workscrum
+      MYSQL_USER: user
+      MYSQL_PASSWORD: userpass
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql  # Volumen para persistir datos
+      - ./sql:/docker-entrypoint-initdb.d  # Montar la carpeta sql con los archivos .sql
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  db_data:

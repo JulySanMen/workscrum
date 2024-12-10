@@ -1,0 +1,59 @@
+.logo{
+    width: 110px;
+}
+.subtitulo{
+    font-size: 30px;
+    font-weight: 400;
+    color: #000000;
+}
+.titulo-principal {
+    font-family: 'Roboto';
+    font-size: 180px; /* Tamaño predeterminado para pantallas grandes */
+    font-weight: 400;
+  }
+
+.buton {
+    margin-top: 70px;
+    background-color: #000000;
+    height: 65px;
+    width: 160px;
+    border-radius: 25px; /* Esquinas redondeadas */
+}
+  
+
+  /*MEDIAS QUERY*/
+  @media (max-width: 1200px) {
+    .titulo-principal {
+      font-size: 150px; /* Para pantallas medianas */
+    }
+    .subtitulo {
+        font-size: 40px;
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .titulo-principal {
+      font-size: 120px; /* Para pantallas pequeñas */
+    }
+    .subtitulo {
+        font-size: 40px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .titulo-principal {
+      font-size: 90px; /* Para tablets o pantallas más pequeñas */
+    }
+    .subtitulo {
+        font-size: 40px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .titulo-principal {
+      font-size: 60px; /* Para móviles */
+    }
+    .subtitulo {
+        font-size: 20px;
+    }
+  }

@@ -1,0 +1,49 @@
+.cont-text1 {
+    background: black;
+    border-radius: 20px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5); /* Sombra en la parte inferior */
+}
+.cont-text2{
+    background: black;
+    border-radius: 20px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5); /* Sombra en la parte inferior */
+}
+/* Estilo inicial: Disposición lado a lado */
+.contenedor-principal {
+    display: flex;
+    flex-wrap: nowrap; /* Evita que los elementos salten a la siguiente línea */
+    justify-content: center; /* Centra horizontalmente */
+    gap: 20px; /* Espacio entre los contenedores */
+}
+
+
+.cont-uno,
+.cont-dos {
+    width: 500px;
+    height: 650px;
+    margin: 0 auto; /* Centrado horizontal */
+    background: rgb(233, 228, 228);
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5); /* Sombra hacia la derecha y abajo */
+}
+
+/* Estilo responsivo: Disposición vertical para pantallas pequeñas */
+@media (max-width: 1028px) {
+    .contenedor-principal {
+        flex-direction: column; /* Coloca los contenedores uno debajo del otro */
+        align-items: center; /* Centra los contenedores */
+    }
+
+    .cont-uno,
+    .cont-dos {
+        width: 90%; /* Asegura que los contenedores se ajusten al ancho de la pantalla */
+        margin: 10px 0; /* Espaciado vertical entre contenedores */
+    }
+}
+.buton-comprar {
+    width: 400px;
+    height: 50px;
+    border-radius: 25px;
+    background: black;
+    display: block; /* Asegura que el botón se comporte como un elemento de bloque */
+    margin: 0 auto; /* Centrado horizontal */
+}
