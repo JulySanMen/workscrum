@@ -1,11 +1,11 @@
-const bcrypt = require('bcryptjs');
-const crypto = require('crypto');
-const db = require('./db');
+const bcrypt = require('bcryptjs'); // Generar hashes seguros de contraseñas.
+const crypto = require('crypto'); // Para cifrar datos sensibles.
+const db = require('./db'); // Modulo de conexión para la base de datos.
 
 // Clave secreta para encriptar y desencriptar datos
-const SECRET_KEY = 'clave_admin_12345'; // Cambia esto por una clave fuerte
+const SECRET_KEY = 'clave_admin_12345';
 
-// Función para encriptar datos
+// Función para encriptar datos, entrada un data y salida string en formato hexadecimal
 const encryptData = (data) => {
   const cipher = crypto.createCipher('aes-256-cbc', SECRET_KEY);
   let encrypted = cipher.update(data, 'utf8', 'hex');
@@ -51,4 +51,5 @@ const getRoles = async (req, res) => {
   }
 };
 
+// Exportar las funciones
 module.exports = { registerUser, getRoles };
